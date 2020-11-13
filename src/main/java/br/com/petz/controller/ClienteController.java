@@ -38,13 +38,11 @@ public class ClienteController {
 	public ResponseEntity salvar(@RequestBody ClienteRequest cliente) {
 		
 		try {
-			service.salvarOuAtualizar(cliente);
+			return new ResponseEntity(service.salvarOuAtualizar(cliente), HttpStatus.OK);
 		}catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity(Boolean.FALSE, HttpStatus.BAD_REQUEST);
 		}
-		
-		return new ResponseEntity(Boolean.TRUE, HttpStatus.OK);
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -57,13 +55,11 @@ public class ClienteController {
 	public ResponseEntity alterar(@RequestBody Cliente cliente) {
 		
 		try {
-			service.salvarOuAtualizar(cliente);
+			return new ResponseEntity(service.salvarOuAtualizar(cliente), HttpStatus.OK);
 		}catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity(Boolean.FALSE, HttpStatus.BAD_REQUEST);
 		}
-		
-		return new ResponseEntity(Boolean.TRUE, HttpStatus.OK);
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })

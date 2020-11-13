@@ -18,11 +18,11 @@ public class ClienteRepositoryTest {
 	private ClienteRepository repository;
 	
 	@Test
-	public void salvarBuscarAlterarDeletarPessoa() {
-		Cliente cliente = new Cliente();
-		cliente.setNome("Breno");
-		cliente.setCpf("123.123.123-87");
-		cliente.setTelefone("(11) 99345-1234");
+	public void salvarBuscarAlterarDeletarCliente() {
+		Cliente cliente = Cliente.builder()
+		.nome("Breno")
+		.cpf("123.123.123-87")
+		.telefone("(11) 99345-1234").build();
 		repository.saveAndFlush(cliente);
 		
 		//Salvando

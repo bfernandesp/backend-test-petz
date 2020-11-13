@@ -9,10 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 
 @ToString
+@AllArgsConstructor
+@Builder
 @Data
 @Entity
 @Table(name = "cliente")
@@ -28,5 +32,6 @@ public class Cliente implements Serializable {
 	private String endereco;
 	private String telefone;
 
+	public Cliente() {}
 	
 }

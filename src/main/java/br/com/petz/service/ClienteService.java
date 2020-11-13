@@ -26,16 +26,16 @@ public class ClienteService {
 		return repository.findByNome(nome);
 	} 
 	
-	public void salvarOuAtualizar(Object cliente) {
+	public Cliente salvarOuAtualizar(Object cliente) {
 		if (cliente instanceof ClienteRequest) {
-			Cliente entity = new Cliente();
-			entity.setNome(((ClienteRequest) cliente).getNome());
-			entity.setCpf(((ClienteRequest) cliente).getCpf());
-			entity.setEndereco(((ClienteRequest) cliente).getEndereco());
-			entity.setTelefone(((ClienteRequest) cliente).getTelefone());
-			repository.save(entity);
+			Cliente entity = Cliente.builder()
+			.nome(((ClienteRequest) cliente).getNome())
+			.cpf(((ClienteRequest) cliente).getCpf())
+			.endereco(((ClienteRequest) cliente).getEndereco())
+			.telefone(((ClienteRequest) cliente).getTelefone()).build();
+			return repository.save(entity);
 		}else {
-			repository.save((Cliente)cliente);
+			return repository.save((Cliente)cliente);
 		}
 	}
 	
